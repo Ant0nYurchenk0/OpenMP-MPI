@@ -22,6 +22,7 @@ long long gethash(string str, int prime){
   }
   return result;
 }
+
 int main() 
 { 
 
@@ -36,7 +37,6 @@ int main()
     #pragma omp task
     {
       for (int j = i*NUMBERS/WORKERS; j<(i+1)*NUMBERS/WORKERS; j++){
-        // cout<<j<<endl;
         if(hash == gethash(str, j)){
           #pragma omp critical
           {
@@ -51,10 +51,10 @@ int main()
 
   auto stop = high_resolution_clock::now();
 
-  cout<<"Prime is: "<<result<<endl;
+  printf("Prime is: %d\n", result);
 
   auto duration = duration_cast<milliseconds>(stop - start);
-  cout << "Execution time: " << duration.count() << endl;
+  printf("Execution time: %ld\n", duration.count());
   return 0; 
 } 
 
