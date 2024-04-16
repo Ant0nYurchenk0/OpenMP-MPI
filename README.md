@@ -1,9 +1,17 @@
-Build:
+Build OpenMP:
 ```bash
-g++ -o openmp openmp.cpp -fopenmp
+g++ -o openmp openmp1.cpp -fopenmp
 ```
-
-Start:
+Start OpenMP:
 ```bash
 ./openmp
+```
+
+Build OpenMP:
+```bash
+mpic++ -o mpi mpi1.cpp
+```
+Start OpenMP:
+```bash
+mpiexec -n 4 ./mpi
 ```
